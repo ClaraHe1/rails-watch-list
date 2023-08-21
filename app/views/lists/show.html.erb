@@ -4,11 +4,13 @@
 
 <ul>
   <% @list.movies.each do |movie| %>
+  <div class="card" style="width: 18rem;">
     <h3><%= "#{movie.title} ~  #{movie.rating}" %></h3>
     <p><%= movie.overview %></p>
     <% movie.bookmarks.each do |bookmark| %>
     <p><%= bookmark.comment %></p>
     <p><%= link_to "delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }%></p>
     <% end %>
+  </div>
   <% end %>
 </ul>
